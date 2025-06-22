@@ -53,3 +53,8 @@ console.log(a);
 
 //typeof
 //console.log(typeof (true));
+
+
+var a = 20;
+var b = 30;
+console.log(a/b);
