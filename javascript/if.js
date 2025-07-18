@@ -17,10 +17,13 @@
 //  logical NOT !
 // console.log(!true) //false
 
-if(red)
+var color = "red"
+var color = "yellow"
+var color = "green"
+
+if(color == 'red')
 {
+
     console.log("stop")
 }
-else{
-    
-}
+
