@@ -95,3 +95,70 @@ Push your local changes even if it overwrites remote history.
 git clone https://github.com/yourusername/repo.git
 
 Download an existing GitHub repository to your computer.
+
+
+# 🌐 Frontend Projects Portfolio  
+
+Hi, I'm **Prasanth**, a Frontend Developer passionate about building clean, responsive, and interactive web experiences.  
+This repository is a collection of my **frontend projects** – from **beginner HTML/CSS pages** to **advanced React applications**.  
+Each project includes **source code, live demos, and clear documentation**.
+
+---
+
+## 🚀 Live Portfolio Link  
+➡️ **[View All Projects Live](https://yourusername.github.io/frontend-projects-portfolio/)**  
+
+---
+
+## 📂 Projects Overview  
+
+### **1. Beginner (HTML & CSS Projects)**  
+Basic static websites to demonstrate layout and styling skills.  
+
+| Project Name          | Tech Used         | Live Demo                                                                                   |
+|-----------------------|------------------|--------------------------------------------------------------------------------------------|
+| Personal Portfolio    | HTML, CSS        | [View Demo](https://yourusername.github.io/frontend-projects-portfolio/01-html-css-basics/personal-portfolio) |
+| Landing Page          | HTML, CSS        | [View Demo](https://yourusername.github.io/frontend-projects-portfolio/01-html-css-basics/landing-page)       |
+
+---
+
+### **2. Intermediate (JavaScript Projects)**  
+Interactive applications built with DOM manipulation and event handling.  
+
+| Project Name          | Tech Used             | Live Demo                                                                                   |
+|-----------------------|-----------------------|--------------------------------------------------------------------------------------------|
+| Calculator App        | HTML, CSS, JavaScript | [View Demo](https://yourusername.github.io/frontend-projects-portfolio/02-javascript-projects/calculator)      |
+| Todo List             | HTML, CSS, JavaScript | [View Demo](https://yourusername.github.io/frontend-projects-portfolio/02-javascript-projects/todo-list)        |
+
+---
+
+### **3. Advanced (React Projects)**  
+Dynamic and scalable applications with APIs and component-based architecture.  
+
+| Project Name          | Tech Used                        | Live Demo                                              |
+|-----------------------|----------------------------------|-------------------------------------------------------|
+| Weather App           | React, CSS, OpenWeather API      | [View Live](https://your-weather-app.netlify.app)     |
+| Movie Finder          | React, API, Styled Components    | [View Live](https://your-movie-finder.netlify.app)    |
+| E-commerce Clone      | React, Context API, CSS          | [View Live](https://your-shop-clone.netlify.app)      |
+
+---
+
+## 🛠 Skills & Tools  
+- **Languages**: HTML5, CSS3, JavaScript (ES6+)  
+- **Frameworks & Libraries**: React, Bootstrap  
+- **Version Control**: Git & GitHub  
+- **Hosting Platforms**: GitHub Pages, Netlify  
+- **Other**: API integration, Responsive Design, SEO-friendly pages
+
+---
+
+## 📫 Connect with Me  
+- **LinkedIn**: [Prasanth Senthilkumaran](https://www.linkedin.com/in/prasanth-senthilkumaran)  
+- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)  
+
+---
+
+### How to Run Locally  
+1. Clone this repository  
+   ```bash
+   git clone https://github.com/yourusername/frontend-projects-portfolio.git
