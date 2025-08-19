@@ -164,3 +164,96 @@ Dynamic and scalable applications with APIs and component-based architecture.
 1. Clone this repository  
    ```bash
    git clone https://github.com/yourusername/frontend-projects-portfolio.git
+
+
+
+ **Local Git (on your computer)** and **GitHub (remote repo)**
+
+
+# 🖥 Local Git Commands (on your PC)
+
+These manage your **local repository**.
+
+```bash
+# Initialize a new Git repo in current folder
+git init
+
+# Check repo status (new/modified files)
+git status
+
+# Add all files to staging area
+git add .
+
+# Add specific file
+git add index.html
+
+# Commit changes with message
+git commit -m "Initial commit"
+
+# See commit history
+git log
+
+# Show differences (before commit)
+git diff
+```
+
+---
+
+# 🌍 GitHub (Remote Repo) Commands
+
+These connect your **local repo** to GitHub and sync changes.
+
+```bash
+# Add remote GitHub repo (only first time)
+git remote add origin https://github.com/YourUsername/repo-name.git
+
+# Rename branch to main (GitHub uses main by default)
+git branch -M main
+
+# Push local repo → GitHub (first push)
+git push -u origin main
+
+# Push changes (after commits)
+git push origin main
+
+# Pull latest changes from GitHub
+git pull origin main
+
+# Check which remote repo is connected
+git remote -v
+```
+
+---
+
+# 🔁 Workflow Example (from start to finish)
+
+```bash
+# 1. Make new project folder
+mkdir codveda-internship
+cd codveda-internship
+
+# 2. Initialize Git
+git init
+
+# 3. Add and commit files
+git add .
+git commit -m "Initial commit"
+
+# 4. Connect to GitHub repo
+git remote add origin https://github.com/YourUsername/codveda-internship.git
+git branch -M main
+
+# 5. Push to GitHub
+git push -u origin main
+```
+
+---
+
+⚡Pro Tip: After the first push, you only need two commands for daily work:
+
+```bash
+git add .
+git commit -m "Updated project"
+git push
+```
+
