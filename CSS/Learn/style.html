@@ -1,0 +1,27 @@
+<html>
+    <head>
+    <style>
+        /* Applying the animation to the <p> tag */
+        p {
+            animation-duration: 3s; /* Time for one cycle */
+            animation-name: slide-in; /* Name of the animation */
+            animation-iteration-count: infinite; /* Animation repeats indefinitely */
+            animation-direction: alternate; /* Alternate the direction of the animation */
+        }
+
+        /* Keyframes for slide-in effect */
+        @keyframes slide-in {
+            100% {
+                transform: translateX(100%); /* Start from the left */
+            }
+            0% {
+                transform: translateX(-100%); /* Move to the right */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center;">Welcome To GFG</h3>
+    <p>CSS Tutorial - GeeksforGeeks</p>
+</body>
+</html>
