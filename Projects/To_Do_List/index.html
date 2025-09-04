@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .todo-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .input-group {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+    .input-group input {
+      flex: 1;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+    .input-group button {
+      padding: 0.7rem 1rem;
+      border: none;
+      background: #222;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+    .input-group button:hover {
+      background: #444;
+    }
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    li {
+      background: #f9f9f9;
+      padding: 0.8rem;
+      margin-bottom: 0.7rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    li.completed {
+      text-decoration: line-through;
+      background: #d1ffd1;
+    }
+    .task-text {
+      flex: 1;
+      cursor: pointer;
+    }
+    .delete-btn {
+      background: red;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    .delete-btn:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="todo-container">
+    <h1>To-Do List</h1>
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Enter a new task...">
+      <button id="addTaskBtn">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const addTaskBtn = document.getElementById("addTaskBtn");
+    const taskList = document.getElementById("taskList");
+
+    // Load tasks from localStorage
+    document.addEventListener("DOMContentLoaded", loadTasks);
+
+    // Add task
+    addTaskBtn.addEventListener("click", addTask);
+    taskInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") addTask();
+    });
+
+    function addTask() {
+      const taskText = taskInput.value.trim();
+      if (taskText === "") return;
+
+      const li = createTaskElement(taskText);
+      taskList.appendChild(li);
+      saveTask(taskText);
+
+      taskInput.value = "";
+    }
+
+    function createTaskElement(taskText, isCompleted = false) {
+      const li = document.createElement("li");
+      if (isCompleted) li.classList.add("completed");
+
+      const span = document.createElement("span");
+      span.className = "task-text";
+      span.innerText = taskText;
+
+      // Toggle complete
+      span.addEventListener("click", () => {
+        li.classList.toggle("completed");
+        updateLocalStorage();
+      });
+
+      // Delete button
+      const deleteBtn = document.createElement("button");
+      deleteBtn.innerText = "Delete";
+      deleteBtn.className = "delete-btn";
+      deleteBtn.addEventListener("click", () => {
+        li.remove();
+        updateLocalStorage();
+      });
+
+      li.appendChild(span);
+      li.appendChild(deleteBtn);
+
+      return li;
+    }
+
+    // Save task to localStorage
+    function saveTask(taskText) {
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.push({ text: taskText, completed: false });
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    // Load tasks from localStorage
+    function loadTasks() {
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.forEach(task => {
+        const li = createTaskElement(task.text, task.completed);
+        taskList.appendChild(li);
+      });
+    }
+
+    // Update localStorage after changes
+    function updateLocalStorage() {
+      const tasks = [];
+      document.querySelectorAll("#taskList li").forEach(li => {
+        tasks.push({
+          text: li.querySelector(".task-text").innerText,
+          completed: li.classList.contains("completed")
+        });
+      });
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+  </script>
+
+</body>
+</html>

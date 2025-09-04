@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Dropdown */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background: #fff;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 0.7rem;
+      color: #222;
+    }
+    .dropdown-content a:hover {
+      background: #eee;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.7rem;
+      border: none;
+      background: #222;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #444;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #fff;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Dropdown -->
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li class="dropdown">
+          <a href="#">More ▼</a>
+          <div class="dropdown-content">
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </li>
+        <li><a href="#" id="openModalBtn">Open Modal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I’m Prasanth, a frontend developer passionate about coding and AI tools.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Here are some of my works...</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name">
+      <span id="nameError" class="error"></span>
+      <input type="email" id="email" placeholder="Your Email">
+      <span id="emailError" class="error"></span>
+      <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+      <span id="messageError" class="error"></span>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2>Welcome!</h2>
+      <p>This is a modal popup created using JavaScript.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Prasanth S | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Modal Functionality
+    const modal = document.getElementById("myModal");
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModal = document.getElementById("closeModal");
+
+    openModalBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+
+    // Form Validation
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let valid = true;
+
+      // Name validation
+      const name = document.getElementById("name").value.trim();
+      if (name === "") {
+        document.getElementById("nameError").innerText = "Name is required";
+        valid = false;
+      } else {
+        document.getElementById("nameError").innerText = "";
+      }
+
+      // Email validation
+      const email = document.getElementById("email").value.trim();
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        document.getElementById("emailError").innerText = "Enter a valid email";
+        valid = false;
+      } else {
+        document.getElementById("emailError").innerText = "";
+      }
+
+      // Message validation
+      const message = document.getElementById("message").value.trim();
+      if (message.length < 10) {
+        document.getElementById("messageError").innerText = "Message must be at least 10 characters";
+        valid = false;
+      } else {
+        document.getElementById("messageError").innerText = "";
+      }
+
+      // If valid, show success
+      if (valid) {
+        alert("Form submitted successfully!");
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: #333;
+  padding: 1rem;
+}
+.navbar a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+.navbar a:hover, .navbar a.active {
+  color: #f39c12;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px;
+}
+.hero img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* About */
+.about {
+  padding: 40px;
+  text-align: center;
+}
+.about img {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+/* Contact */
+.contact {
+  padding: 40px;
+}
+.contact form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.contact input, .contact textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.contact button {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.contact button:hover {
+  background: #f39c12;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+}
